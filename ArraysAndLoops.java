@@ -26,15 +26,23 @@ public class ArraysAndLoops {
 	//           Rueckgabe = 56 (groesstes Element) * 2 (Index von 56) = 112
 	// Nicht vergessen, dass die Indizierung in einem Array mit 0 beginnt!
 	public static int maxElement(final int[] elements){
+		// initialize current max value with first element
 		int max = elements[0];
+		// set the index of first element
 		int tempIndex = 0;
+		
+		// iterate through array
 		for (int i=1; i<elements.length; i++) {
+			// check if current element is higher than current max
 			if (elements[i] > max) {
+				// if current element is higher, current element is new max
 				max = elements[i];
+				// and current index is new index
 				tempIndex = i;
 			}
 		}
 		
+		// multiply and return
 		return max * tempIndex;
 	}
 	
@@ -45,11 +53,16 @@ public class ArraysAndLoops {
 	// Ubergeben wird ein Array der Form {4, 16, 8},
 	// Das zurueckgegebene Array soll dann {4, 4, 16, 16, 8, 8} beinhalten.
 	public static int[] duplicateElements(final int[] elements){
+		// initialize new array with space for every element twice
 		int[] re = new int[elements.length * 2];
+		// counter for return array
 		int j = 0;
+		// iterate through array
 		for (int i=0; i<elements.length; i++) {
+			// save current value at same position in return array
 			re[j] = elements[i];
 			j++;
+			// and at current position + 1
 			re[j] = elements[i];
 			j++;
 		}
@@ -78,11 +91,18 @@ public class ArraysAndLoops {
 	// ACHTUNG: Diese Methode hat keine Rueckgabe. Das Array Elements soll
 	// nach Ausfuehrung der Methode das Ergebnis beinhalten.
 	public static void reverseArray(int[] elements){
+		// create temp variable to store element to switch
 		int temp = 0;
 		int l = elements.length;
+		// iterate through array until the element in the middle is reached
+		// ((int) l / 2) gives half of even numbers
+		// 				 and (half - 1) for uneven numbers
 		for (int i=0; i<((int) l / 2); i++) {
+			// store current value as temp
 			temp = elements[i];
+			// store last value as first value
 			elements[i] = elements[l - i - 1];
+			// and first value as last value
 			elements[l - i - 1] = temp;
 		}
 	}
